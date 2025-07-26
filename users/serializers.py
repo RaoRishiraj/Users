@@ -3,6 +3,17 @@ from .models import User
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth import authenticate
 
+def validate_password(value):
+    if len(value) < 8:
+        raise serializers.ValidationError("Password must be at least 8 characters long.")
+    if not any(char.isdigit() for char in value):
+        raise serializers.ValidationError("Password must contain at least one digit.")
+    if not any(char.isalpha() for char in value):
+        raise serializers.ValidationError("Password must contain at least one letter.")
+    if not any(char in "!@#$%^&*()-_=+[]{}|;:'\",.<>?/" for char in value):
+        raise serializers.ValidationError("Password must contain at least one special character.")
+    return value
+    
 class RegisterSerializer(serializers.Serializer):
     id=serializers.UUIDField(read_only=True)
     email=serializers.EmailField()
@@ -17,6 +28,10 @@ class RegisterSerializer(serializers.Serializer):
         user.role=role
         user.save()
         return user
+    def validate_username(self, value):
+        if User.objects.filter(username=value).exists():
+            raise serializers.ValidationError("Username already taken.")
+        return value
     def validate_email(self, value):
         if User.objects.filter(email=value).exists():
             raise serializers.ValidationError("Email already registered.")

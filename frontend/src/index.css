@@ -1,0 +1,230 @@
+:root {
+  --violet: #7c3aed;
+  --pink: #ec4899;
+  --blue: #2563eb;
+  --gray-bg: #f8fafc;
+  --gray-border: #e5e7eb;
+  --white: #fff;
+  --shadow: 0 4px 24px 0 #7c3aed22;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: linear-gradient(120deg, var(--gray-bg) 80%, #f3e8ff 100%);
+  margin: 0;
+  min-height: 100vh;
+}
+
+.max-w-md, .max-w-2xl {
+  background: var(--white);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow);
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  margin-top: 3rem;
+}
+
+.max-w-md {
+  max-width: 28rem;
+}
+.max-w-2xl {
+  max-width: 42rem;
+}
+
+h2, h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--violet);
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+}
+
+input, select {
+  border: 1.5px solid var(--gray-border);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  background: var(--white);
+  transition: border 0.2s, box-shadow 0.2s;
+  font-size: 1rem;
+}
+input:focus, select:focus {
+  border: 1.5px solid var(--violet);
+  box-shadow: 0 0 0 2px #7c3aed33;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  background: var(--violet);
+  color: var(--white);
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px #7c3aed22;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  margin-top: 0.5rem;
+}
+button:hover, button:focus {
+  background: #a78bfa;
+  box-shadow: 0 4px 16px #7c3aed33;
+  transform: translateY(-2px) scale(1.03);
+}
+
+nav {
+  background: var(--white);
+  box-shadow: 0 2px 12px #7c3aed11;
+  border-radius: 0 0 1.25rem 1.25rem;
+  margin-bottom: 2rem;
+  padding: 1.2rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav a, nav button {
+  color: var(--violet);
+  background: none;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-left: 1.5rem;
+  margin-right: 0;
+  padding: 0;
+  box-shadow: none;
+  transition: color 0.2s;
+}
+nav a:hover, nav button:hover {
+  color: var(--pink);
+  background: none;
+  text-decoration: underline;
+}
+
+.Message {
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.bg-red-200 {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+.bg-green-200 {
+  background: #d1fae5;
+  color: #047857;
+}
+
+.text-violet {
+  color: var(--violet);
+}
+.text-pink {
+  color: var(--pink);
+}
+
+.flex {
+  display: flex;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.ml-4 {
+  margin-left: 1rem;
+}
+.mr-4 {
+  margin-right: 1rem;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.mt-8 {
+  margin-top: 2rem;
+}
+.p-2 {
+  padding: 0.5rem;
+}
+.p-4 {
+  padding: 1rem;
+}
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+.rounded {
+  border-radius: 0.5rem;
+}
+
+.role-field {
+  margin-bottom: 2rem;
+}
+.role-label {
+  display: block;
+  font-weight: 600;
+  color: var(--violet);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.01em;
+}
+.role-select {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border: 1.5px solid var(--violet);
+  border-radius: 0.75rem;
+  background: var(--white);
+  font-size: 1rem;
+  transition: border 0.2s, box-shadow 0.2s;
+  margin-top: 0.2rem;
+}
+.role-select:focus {
+  border: 1.5px solid var(--pink);
+  box-shadow: 0 0 0 2px #ec489933;
+  outline: none;
+}
+
+/* Modern user table styles */
+.user-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  background: var(--white);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 2px 12px #7c3aed11;
+}
+
+.user-table th, .user-table td {
+  padding: 1.1rem 1.2rem;
+  font-size: 1.05rem;
+  text-align: left;
+}
+
+.user-table th {
+  background: #ede9fe;
+  color: var(--violet);
+  font-weight: 700;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.user-table tr {
+  transition: background 0.2s;
+}
+
+.user-table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.user-table tbody tr:hover {
+  background: #f3e8ff;
+}
+
+.user-table td {
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.user-table tr:last-child td {
+  border-bottom: none;
+}
