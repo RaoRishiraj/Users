@@ -31,22 +31,48 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Django defaults
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Required by allauth
+    'django.contrib.sites',
+
+    # Third-party
     'corsheaders',
-    'rest_framework', 'rest_framework_simplejwt',
-    'users'
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_framework_simplejwt',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',   # <- add this for Google
+    'allauth.socialaccount.providers.github',   # <- add this for GitHub
+
+    # Your app
+    'users',
 ]
 
+SITE_ID = 1  # Needed by django-allauth
+
+ACCOUNT_EMAIL_VERIFICATION = "none"  # Disable email verification if not needed
+ACCOUNT_AUTHENTICATION_METHOD = "username"
+ACCOUNT_EMAIL_REQUIRED = False
+
+REST_USE_JWT = True 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
+
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -135,3 +161,5 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
 }
+REST_USE_JWT = True
+DJ_REST_AUTH_TOKEN_MODEL = None

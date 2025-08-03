@@ -5,17 +5,15 @@ import sys
 
 
 def main():
-    """Run administrative tasks."""
+    import os
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'user_api_project.settings')
-    try:
-        from django.core.management import execute_from_command_line
-    except ImportError as exc:
-        raise ImportError(
-            "Couldn't import Django. Are you sure it's installed and "
-            "available on your PYTHONPATH environment variable? Did you "
-            "forget to activate a virtual environment?"
-        ) from exc
+    
+    # Add this line BEFORE any django setup
+    os.environ.setdefault('DJ_REST_AUTH_TOKEN_MODEL', 'None')
+
+    from django.core.management import execute_from_command_line
     execute_from_command_line(sys.argv)
+
 
 
 if __name__ == '__main__':

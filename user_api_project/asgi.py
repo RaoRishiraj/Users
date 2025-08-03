@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/5.2/howto/deployment/asgi/
 import os
 
 from django.core.asgi import get_asgi_application
+os.environ.setdefault('DJ_REST_AUTH_TOKEN_MODEL', 'None')  # Add this line
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'user_api_project.settings')
 
